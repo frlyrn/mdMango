@@ -1,0 +1,7 @@
+# Ignore semua file kecuali yang dibutuhkan
+.git/
+*.pyc
+__pycache__/
+*.pkl
+*.zip
+*.h5
