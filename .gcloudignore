@@ -5,3 +5,6 @@ __pycache__/
 *.pkl
 *.zip
 *.h5
+
+# Tapi jangan ignore file model yang dibutuhkan
+!app/mango_classifier_model.h5
