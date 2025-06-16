@@ -53,20 +53,17 @@ def detect():
 
         # Menentukan status dan perkiraan hari panen
         if maturity_score > 0.5:
-            result = "Immature"
-            suggestion = "The mango is not ripe yet, wait for a few days."
-            estimated_harvest_days = np.random.randint(2, 5)  # 2-5 hari lagi matang
+            result = "Mentah"
+            suggestion = "Mangga ini belum matang, tunggu beberapa hari."
         else:
-            result = "Mature"
-            suggestion = "The mango is ripe, ready to eat."
+            result = "Matang"
+            suggestion = "Mangga sudah matang, siap untuk dimakan."
             estimated_harvest_days = 0  # Sudah matang, siap panen
 
         return jsonify({
             "maturity_score": "{:.15e}".format(maturity_score),
-            "status": "success",
             "result": result,
             "suggestion": suggestion,
-            "estimated_harvest_days": estimated_harvest_days
         })
 
     except Exception as e:
