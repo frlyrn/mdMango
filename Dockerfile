@@ -1,16 +1,14 @@
-# Gunakan image dasar Python
-FROM python:3.9-slim
+FROM python:3.10-slim
 
-# Salin aplikasi ke container
 WORKDIR /app
-COPY app/ /app/
 
-# Salin requirements.txt dan instal dependensi
-COPY requirements.txt /app/
+# Copy dependencies and install
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Ekspos port Flask
-EXPOSE 5000
+# Copy app and model
+COPY app/ ./app/
+COPY app/mango_classifier_model.h5 ./app/
 
-# Perintah untuk menjalankan aplikasi
-CMD ["python", "main.py"]
+# Command to run
+CMD ["python", "app/main.py"]
